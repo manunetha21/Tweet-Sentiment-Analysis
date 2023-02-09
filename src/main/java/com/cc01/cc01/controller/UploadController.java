@@ -4,10 +4,6 @@ package com.cc01.cc01.controller;
 
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.core.io.ByteArrayResource;
@@ -25,10 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cc01.cc01.config.Configuration;
-import com.cc01.cc01.model.FileRequestModel;
 import com.cc01.cc01.utils.ResponseMessage;
 import com.cc01.cc01.utils.ResponseMessageForFile;
-import com.cc01.cc01.utils.SpringSessionUtil;
 
 @Controller
 public class UploadController {

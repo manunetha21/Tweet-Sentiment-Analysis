@@ -1,6 +1,5 @@
 package com.cc01.cc01.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
