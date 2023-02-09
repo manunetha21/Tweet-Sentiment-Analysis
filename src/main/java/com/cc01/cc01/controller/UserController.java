@@ -1,8 +1,5 @@
 package com.cc01.cc01.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -10,8 +7,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.client.RestTemplate;
-
 import com.cc01.cc01.config.Configuration;
 import com.cc01.cc01.model.UserModel;
 import com.cc01.cc01.utils.Infomation;
