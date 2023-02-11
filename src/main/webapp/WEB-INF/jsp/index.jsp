@@ -12,7 +12,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
   
-    <title>BigWing</title>
+    <title>VTJCC01</title>
   
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
@@ -62,7 +62,7 @@
                         <a class="nav-link" href="contact.html">HARM Report</a>
                       </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Logout</a>
+                        <a class="nav-link" href="/logout">Logout</a>
                       </li>
                        
                       

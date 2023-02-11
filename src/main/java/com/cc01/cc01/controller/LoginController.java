@@ -1,6 +1,8 @@
 package com.cc01.cc01.controller;
 
 import java.time.LocalDate;
+
+import javax.management.RuntimeErrorException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
+import com.cc01.cc01.Exceptions.MyException;
 import com.cc01.cc01.Repository.UserStatusRepository;
 import com.cc01.cc01.config.Configuration;
 import com.cc01.cc01.model.UserModel;
@@ -32,14 +35,25 @@ public class LoginController {
     public String userLogin(
         @RequestParam("emailid")String emailid,
         @RequestParam("password")String password,Model model,HttpSession session,HttpServletRequest request
-    ) {
+    ) throws MyException {
 
+        String pageName=null;
+        if(emailid.equalsIgnoreCase("admin@gmail.com") && password.equalsIgnoreCase("admin")){
+           model.addAttribute("home", "home");
+            return pageName="Admin";
+        }else{
+     
         UserModel um = new UserModel();
         um.setEmailId(emailid);
         um.setPassword(password);
-        ResponseMessage rm = Configuration
+        ResponseMessage rm=null; 
+        try{
+        rm= Configuration
             .getRestTemplate()
             .postForObject(Configuration.getIP()+"user/login", um, ResponseMessage.class);
+        }catch(Exception e){
+           throw new MyException("your server is not reachable");
+        }
         if(rm.getMessage().equalsIgnoreCase("success")){
            um=rm.getUserModel();
 
@@ -55,6 +69,8 @@ public class LoginController {
               String info= Infomation.getErrorMessage("Emailid or password wrong");
               model.addAttribute("info", info);
               return "login";
+        }
+    
         }
       
     }
@@ -78,5 +94,10 @@ public class LoginController {
     }
 
    } 
+
+   @GetMapping("/logout")
+   public String Logout(){
+    return "login";
+   }
 
 }
