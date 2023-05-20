@@ -59,7 +59,7 @@
                         <a class="nav-link" href="/view/${um.userId}">View Files</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="contact.html">HARM Report</a>
+                        <a class="nav-link" href="/userHarmFiles/${um.userId}">HARM Report</a>
                       </li>
                         <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
@@ -198,16 +198,65 @@
   
   </c:when>
 
+  
+  <c:when test="${harmFiles != null}">
+    
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-5 col-md-6">
+        <div class="slider_detail-box">
+          <h1>
+        Harm Report Files
+       
+         <p>${msg}</p>
+          </h1>
+         <table class="table" style="color:#fff;">
+         <tr>
+          <td>FileName</td>
+          <td>Action</td>
+         </tr>
+
+         <tr>
+
+          <c:forEach items="${files}" var="element"> 
+  <tr>
+    <td>${element.fileName}</td>
+    <td><a href="/deleteFile/${element.fileId}">Delete File</a></td>
+    
+  </tr>
+</c:forEach>
+         </tr>
+
+         </table>
+
+
+
+
+          <div class="btn-box">
+           
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="slider_img-box">
+          <img src="../images/slider-img.png" alt=""/>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </c:when>
+
   <c:otherwise>
     <div class="container">
       <div class="row">
         <div class="col-lg-5 col-md-6">
-          <div class="slider_detail-box">
+          <div class="slider_detail-box"> 
             <h1>
            welcome ${um.name}
             </h1>
-          <p>abstract</p>
-          <p>${suid}</p>
+       
+         
             <div class="btn-box">
              
             </div>

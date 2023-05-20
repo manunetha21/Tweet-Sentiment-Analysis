@@ -1,4 +1,4 @@
-package com.cc01.cc01.Exceptions;
+/* package com.cc01.cc01.Exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,4 +13,4 @@ public class RestControllerAdvice {
   public ResponseEntity<String> handleException(Exception exception) {
     return new ResponseEntity<>("Check Server ! Your server is not UP", HttpStatus.INTERNAL_SERVER_ERROR);
   }
-}
+} */

@@ -1,22 +1,15 @@
 package com.cc01.cc01.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 
 
 public class FileModel {
 	
-    
 	int FileId;
 	int UserId;
 	String fileName;
 	String hashKey;
 	String domain;
 	String fileUrl;
-
-	
-	
 	
 	public FileModel() {
 	}
@@ -60,9 +53,7 @@ public class FileModel {
 	public void setFileUrl(String fileUrl) {
 		this.fileUrl = fileUrl;
 	}
-	
-	
-	
+		
 
 }
 

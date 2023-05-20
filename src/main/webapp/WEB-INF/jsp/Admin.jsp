@@ -59,10 +59,10 @@
                         <a class="nav-link" href="/files">View Files</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="contact.html">View Harm Report</a>
+                        <a class="nav-link" href="/harmFiles">View Harm Report</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="#"> Logout</a>
+                        <a class="nav-link" href="/logout"> Logout</a>
                       </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0 ml-0 ml-lg-4 mb-3 mb-lg-0">
@@ -207,6 +207,9 @@
                     </div>
                    </div>
             </c:when>
+
+
+            
       
        </c:choose>
   

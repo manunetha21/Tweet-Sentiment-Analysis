@@ -84,5 +84,33 @@ public String getFiles(@PathVariable String userId,Model model, HttpSession sess
     return "index";
 }
 
+@GetMapping("/userHarmFiles/{userId}")
+public String getHarmFiles(@PathVariable String userId,Model model, HttpSession session){
+  
+    ResponseMessageForFile rm=Configuration
+    .getRestTemplate()
+    .getForObject(Configuration.getIP()+"upload/userHarmFiles/"+userId,ResponseMessageForFile.class);
+    if(rm.getFileModel().isEmpty()){
+      
+        model.addAttribute("msg", "No files found ");
+        model.addAttribute("harmFiles", "harmFiles");
+    }else{
+        model.addAttribute("files", rm.getFileModel());
+        model.addAttribute("harmFiles", "harmFiles");
+    }
+
+    return "index";
+}
+
+@GetMapping("/deleteFile/{fileId}")
+public String deleteFile(@PathVariable String fileId){
+
+    String s=Configuration
+    .getRestTemplate()
+    .getForObject(Configuration.getIP()+"upload/deleteFile/"+fileId,String.class);
+    System.out.println(s);
+    return "index";
+}
+
     
 }
