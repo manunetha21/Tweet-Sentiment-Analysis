@@ -24,7 +24,7 @@
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css?family=Dosis:400,500|Poppins:400,700&amp;display=swap" rel="stylesheet"/>
     <!-- Custom styles for this template -->
-    <link href="css/style.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
     <!-- responsive style -->
     <link href="css/responsive.css" rel="stylesheet"/>
   </head>
@@ -177,7 +177,52 @@
                             <td>User Name</td>
                             <td>File Name</td>
                             <td>Hash Key</td>
-                            <td>Date</td>
+                            
+                          </tr>
+                          <c:forEach items="${files}" var="element"> 
+                            <tr>
+                              <td>${element.fileId}</td>
+                              <td>${element.userId}</td>
+                              <td>${element.fileName}</td>
+                              <td>${element.hashKey}</td>
+                             
+        
+                            </tr>
+                          </c:forEach>
+
+                          </table>
+                           </div>
+                         </div>
+           
+                    </div>
+                    <div class="col-lg-6">
+                       <div class="layout_padding">
+           
+                           <div class="img-box">
+                               
+                              
+                             </div>
+                       </div>
+           
+                    </div>
+                   </div>
+            </c:when>
+
+
+            <c:when test="${harmFiles != null}">
+                <div class="row">
+                  <h2>Files Reported with errors</h2>
+                    <div class="col-lg-6">
+                       <div class="layout_padding">
+                          
+                           <div class="detail-box">
+                          <table class="table">
+                          <tr>
+                            <td>File Id</td>
+                            <td>User Name</td>
+                            <td>File Name</td>
+                            <td>Hash Key</td>
+                           
                           </tr>
                           <c:forEach items="${files}" var="element"> 
                             <tr>

@@ -68,7 +68,7 @@ public class AdminContorller {
             throw new MyException("your server is not reachable");
         }
 
-        model.addAttribute("filespage", "filespage");
+        model.addAttribute("harmFiles","harmFiles");
         model.addAttribute("files", rm.getFileModels());
 
         return "Admin";
