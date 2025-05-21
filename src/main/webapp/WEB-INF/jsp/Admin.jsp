@@ -56,11 +56,11 @@
                         <a class="nav-link" href="/users">View Users </a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/files">View Files</a>
+                        <a class="nav-link" href="/resultsPage">Check Results</a>
                       </li>
-                      <li class="nav-item">
+<!--                       <li class="nav-item">
                         <a class="nav-link" href="/harmFiles">View Harm Report</a>
-                      </li>
+                      </li> -->
                       <li class="nav-item">
                         <a class="nav-link" href="/logout"> Logout</a>
                       </li>
@@ -163,6 +163,56 @@
                     </div>
                    </div>
             </c:when>
+
+
+            <c:when test="${resultsPage != null}">
+             
+                <div class="row">
+                    <div class="col-lg-12">
+                       <div class="layout_padding">
+                          
+                           <div class="detail-box">
+                          <table class="table">
+                          <tr>
+                            <td>Positive</td>
+                            <td>Negative</td>
+                            <td>Neutral</td>
+                            <td>Compound</td>
+                           
+                          </tr>
+                          
+                            <tr>
+                              <c:forEach items="${result.pos}" var="element"> 
+                              <td>${element}
+                              </c:forEach>
+                              </td>
+                              <c:forEach items="${result.neg}" var="element"> 
+                                <td>${element}</td>
+                                </c:forEach>
+
+                              
+                              <td>
+                              ${result.neutral}
+                               </td>
+                               <c:forEach items="${result.compound}" var="element"> 
+                                <td>${element}</td>
+                                </c:forEach>
+                         
+                             
+        
+                            </tr>
+                        
+
+                          </table>
+                           </div>
+                         </div>
+           
+                    </div>
+                   
+                   </div>
+            </c:when>
+
+           
 
 
             <c:when test="${filespage != null}">

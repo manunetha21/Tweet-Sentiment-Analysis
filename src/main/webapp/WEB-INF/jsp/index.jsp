@@ -12,7 +12,7 @@
     <meta name="description" content=""/>
     <meta name="author" content=""/>
   
-    <title>VTJCC01</title>
+    <title>VTJDM04</title>
   
     <!-- slider stylesheet -->
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
@@ -26,12 +26,13 @@
     <link href="../css/style.css" rel="stylesheet"/>
     <!-- responsive style -->
     <link href="../css/responsive.css" rel="stylesheet"/>
+    
   </head>
   
   <body>
-    <div class="hero_area">
+
       <!-- header section strats -->
-      <header class="header_section">
+      <header class="header_section" style="background-color: rgb(158, 22, 255);">
         <div class="container-fluid">
           <div class="row">
             <div class="col-lg-8">
@@ -53,14 +54,14 @@
                         <a class="nav-link" href="/profile/${um.userId}">Profile</a>
                       </li>
                       <li class="nav-item">
-                        <a class="nav-link" href="/upload">Upload</a>
+                        <a class="nav-link" href="/upload">TWEET Sentiment Analysis</a>
                       </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="/view/${um.userId}">View Files</a>
-                      </li>
-                      <li class="nav-item">
+                     <!--  <li class="nav-item">
+                        <a class="nav-link" href="/view1/${um.userId}">View Results</a>
+                      </li> -->
+                     <!--  <li class="nav-item">
                         <a class="nav-link" href="/userHarmFiles/${um.userId}">HARM Report</a>
-                      </li>
+                      </li> -->
                         <li class="nav-item">
                         <a class="nav-link" href="/logout">Logout</a>
                       </li>
@@ -85,7 +86,7 @@
 
           <c:choose>
   <c:when test="${profile != null}">
-    <div class="container">
+    <div class="container" style="color: #000;">
       <div class="row">
         ${msg}
         <div class="col-lg-5 col-md-6">
@@ -93,7 +94,7 @@
             <h1>
            welcome ${um.name}
             </h1>
-          <table class="table" style="color:#fff;">
+          <table class="table" style="color:#000;">
            <tr>
             <td>Name</td>
             <td>Email</td>
@@ -121,32 +122,30 @@
 
   <c:when test="${upload != null}">
     
-  <div class="container">
+  <div class="container" style="color: #000;">
+    <h1>
+      welcome ${um.name}
+      <p>${msg}</p>
+       </h1>
     <div class="row">
-      <div class="col-lg-5 col-md-6">
-        <div class="slider_detail-box">
-          <h1>
-         welcome ${um.name}
-         <p>${msg}</p>
-          </h1>
-          <form action="uploadSubmit" method="post" enctype = "multipart/form-data">
-            <label>Select file to upload</label>
-            <input type="file" name="file" class="form-control"><br/><br/>
-            <input type="hidden" name="userid" value="${um.userId}"/>
-            <input type="submit" value="submit" class="btn btn-success"/>
-          </form>
-          <div class="btn-box">
-           
+      
+   <div class="col-12">
+      <form action="checkSenti"  method="post">
+       
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Ente the Text</label>
+          <div class="col-12">
+            <textarea cols="25" rows="15" name="text"  style="width: 400px;"></textarea>
+
           </div>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div class="slider_img-box">
-          <img src="../images/slider-img.png" alt=""/>
-        </div>
-      </div>
+        
+      
+        <input type="hidden" name="userid" value="${um.userId}"/>
+            <input type="submit" value="submit" class="btn btn-success"/>
+      </form>
+    </div></div>
+     
     </div>
-  </div>
+  
   
   </c:when>
 
@@ -163,16 +162,16 @@
           </h1>
          <table class="table" style="color:#fff;">
          <tr>
-          <td>FileName</td>
-          <td>File Url</td>
+          <td>user Id</td>
+          <td>Result</td>
          </tr>
 
          <tr>
 
-          <c:forEach items="${files}" var="element"> 
+          <c:forEach items="${results}" var="element"> 
   <tr>
-    <td>${element.fileName}</td>
-    <td><a href="${element.fileUrl}">Download</a></td>
+    <td>${element.userid}</td>
+    <td>${element.result}</td>
     
   </tr>
 </c:forEach>
@@ -197,6 +196,53 @@
   </div>
   
   </c:when>
+
+  <c:when test="${resultsPage != null}">
+             
+  <div class="row">
+      <div class="col-lg-12">
+         <div class="layout_padding">
+            
+             <div class="detail-box">
+            <table class="table">
+            <tr>
+              <td>Positive</td>
+              <td>Negative</td>
+              <td>Neutral</td>
+              <td>Compound</td>
+             
+            </tr>
+            
+              <tr>
+                <c:forEach items="${result.pos}" var="element"> 
+                <td>${element}
+                </c:forEach>
+                </td>
+                <c:forEach items="${result.neg}" var="element"> 
+                  <td>${element}</td>
+                  </c:forEach>
+
+                
+                <td>
+                ${result.neutral}
+                 </td>
+                 <c:forEach items="${result.compound}" var="element"> 
+                  <td>${element}</td>
+                  </c:forEach>
+           
+               
+
+              </tr>
+          
+
+            </table>
+             </div>
+           </div>
+
+      </div>
+     
+     </div>
+</c:when>
 
   
   <c:when test="${harmFiles != null}">
@@ -278,7 +324,7 @@
        
       </section>
       <!-- end slider section -->
-    </div>
+    
   
  
   

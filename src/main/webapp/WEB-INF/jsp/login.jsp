@@ -29,13 +29,14 @@
     <link href="../css/main.css" rel="stylesheet" media="all">
 </head>
 
-<body>
-   <div class="page-wrapper bg-gra-03 p-t-45 p-b-50">
+<body >
+ 
+   <div class="page-wrapper bg-gra-03 p-t-45 p-b-50" >
         <div class="wrapper wrapper--w790">
             <br><br><br><br><br><br><br><div class="card card-5">
                 <div class="card-heading">
-                    <h2 class="title">Log Me Here</h2>
-                    <h2 class="title" style="color: red;">${info}</h2>
+                    <h2 class="title">Log In</h2>
+                    <h2 class="title" style="color: rgb(0, 255, 85);">${info}</h2>
                 </div>
                <div class="card-body">
                     <form method="post" action="loginsubmit">
@@ -82,7 +83,7 @@
 
     <!-- Main JS-->
     <script src="js/global.js"></script>
-
+ 
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
